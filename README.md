@@ -17,3 +17,5 @@
 - Make photo to be shown, once the user loggedin successfully
 - Make page to navigate to user feed once loggedin successfully
 - Create the new folder for the components
+- Shouldn't able to access other routes without login
+- If token is not present, redirect to login page
