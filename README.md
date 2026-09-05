@@ -8,3 +8,12 @@
 - Install react-router-dom
 - Routing - Create a BrowserRouter > Routes > Route > childrenRoutes (<Outlet />)
 - Created the footer
+- Create a login page
+- Install cors(origin : {}, credentials: true)
+- Install Axios
+- Whenever making the API call with axios, use {withCredential: true}
+- Install react-redux + @reduxjs/toolkit => configureStore => Provider => createSlice => add reducer to store
+- Install redux toolkit chrome extension
+- Make photo to be shown, once the user loggedin successfully
+- Make page to navigate to user feed once loggedin successfully
+- Create the new folder for the components
