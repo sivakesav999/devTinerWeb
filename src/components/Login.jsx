@@ -11,18 +11,24 @@ const Login = () => {
   const [password, setPassword] = useState("Siva@1234");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post( baseUrl + "login", {
-        email: emailID,
-        password,
-      }, {withCredentials : true});
-      dispatch(addUser(response.data));
-      return navigate("/feed");
+      const response = await axios.post(
+        baseUrl + "login",
+        {
+          email: emailID,
+          password,
+        },
+        { withCredentials: true },
+      );
 
+      dispatch(addUser(response.data));
+      navigate("/");
     } catch (error) {
       console.log(error);
+      setError(error.response?.data);
     }
   };
 
@@ -57,6 +63,8 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </fieldset>
+
+          <p className="text-red-500">{error}</p>
 
           <div className="card-actions justify-center">
             <button
