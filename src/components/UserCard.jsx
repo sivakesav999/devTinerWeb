@@ -1,5 +1,5 @@
 const UserCard = ({ user }) => {
-  const { firstName, lastName, age, about, photo } = user;
+  const { firstName, lastName, age, about, photo, gender } = user;
 
   return (
     <>
