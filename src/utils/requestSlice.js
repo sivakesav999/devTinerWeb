@@ -5,7 +5,11 @@ const requestSlice = createSlice({
     initialState : null,
     reducers : {
         addRequests : (state, action) => action.payload,
+        removeRequest : (state, action) => {
+            const requestArray = state.filter(r=>r._id !== action.payload);
+            return requestArray;
+        }
     }
 });
-export const {addRequests} = requestSlice.actions;
+export const {addRequests, removeRequest} = requestSlice.actions;
 export default requestSlice.reducer;

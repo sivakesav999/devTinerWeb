@@ -26,3 +26,4 @@
 - Show toast on updating the profile
 - Implemented connections page
 - Created new page to see all my connection requests, added buttons to accept or ignore.
+- Built feature - accept/reject connection requests
