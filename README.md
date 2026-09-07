@@ -19,3 +19,9 @@
 - Create the new folder for the components
 - Shouldn't able to access other routes without login
 - If token is not present, redirect to login page
+- Logout feature
+- Get the feed and add the feed to store
+- Built user card on feed
+- Edit profile feature
+- Show toast on updating the profile
+- Implemented connections page
