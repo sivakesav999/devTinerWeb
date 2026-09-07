@@ -32,6 +32,7 @@ const Login = () => {
       setError(error.response?.data);
     }
   };
+
   const handleSignUp = async () => {
     try {
       const response = await axios.post(
@@ -40,8 +41,7 @@ const Login = () => {
           firstName,
           lastName,
           email,
-          password
-          
+          password,
         },
         { withCredentials: true },
       );
@@ -54,11 +54,14 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <div className="card bg-base-300 w-96 shadow-sm">
-        <div className="card-body">
-          <h1 className="flex justify-center font-bold text-2xl">
-            {isLoggedIn == true ? <>Login</> : <>Signup</>}
+    <div className="min-h-screen flex justify-center items-center px-4 py-8 sm:px-6">
+      {" "}
+      <div className="card bg-base-300 w-full max-w-md shadow-sm">
+        {" "}
+        <div className="card-body p-4 sm:p-6">
+          {" "}
+          <h1 className="flex justify-center font-bold text-xl sm:text-2xl">
+            {isLoggedIn == true ? <>Login</> : <>Signup</>}{" "}
           </h1>
 
           {!isLoggedIn && (
@@ -71,7 +74,7 @@ const Login = () => {
                 <input
                   type="text"
                   id="firstName"
-                  className="input"
+                  className="input w-full"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                 />
@@ -85,14 +88,13 @@ const Login = () => {
                 <input
                   type="text"
                   id="lastName"
-                  className="input"
+                  className="input w-full"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                 />
               </fieldset>
             </>
           )}
-
           <fieldset className="fieldset">
             <label className="label" htmlFor="email">
               Email ID
@@ -101,12 +103,11 @@ const Login = () => {
             <input
               type="text"
               id="email"
-              className="input"
+              className="input w-full"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </fieldset>
-
           <fieldset className="fieldset">
             <label className="label" htmlFor="password">
               Password
@@ -115,21 +116,22 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              className="input"
+              className="input w-full"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </fieldset>
-
-          <p className="text-red-500">{error}</p>
-
+          <p className="text-red-500 break-words">{error}</p>
           <div className="card-actions justify-center">
-            <button className="btn btn-primary" onClick={isLoggedIn ? handleLogin : handleSignUp}>
+            <button
+              className="btn btn-primary w-full sm:w-auto"
+              onClick={isLoggedIn ? handleLogin : handleSignUp}
+            >
               {isLoggedIn === true ? <>Login</> : <>Sign Up</>}
             </button>
           </div>
           <p
-            className="m-auto my-3 cursor-pointer"
+            className="m-auto my-3 cursor-pointer text-center text-sm sm:text-base"
             onClick={() => setIsLoggedIn((value) => !value)}
           >
             {isLoggedIn

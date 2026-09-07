@@ -46,24 +46,28 @@ const EditProfile = () => {
 
   return (
     <>
-      <div className="flex justify-center mx-10">
-        <div className="min-h-screen flex justify-center items-center mx-10">
-          <div className="card bg-base-300 w-96 shadow-sm">
-            <div className="card-body">
+      {" "}
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 lg:gap-12 px-4 sm:px-6 lg:px-8 py-6">
+        {" "}
+        <div className="min-h-0 lg:min-h-screen flex justify-center items-center w-full lg:w-auto">
+          {" "}
+          <div className="card bg-base-300 w-full max-w-md shadow-sm">
+            {" "}
+            <div className="card-body p-4 sm:p-6">
+              {" "}
               <fieldset className="fieldset">
+                {" "}
                 <label className="label" htmlFor="firstName">
-                  First Name
+                  First Name{" "}
                 </label>
-
                 <input
                   type="text"
                   id="firstName"
-                  className="input"
+                  className="input w-full"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                 />
               </fieldset>
-
               <fieldset className="fieldset">
                 <label className="label" htmlFor="lastName">
                   Last Name
@@ -72,12 +76,11 @@ const EditProfile = () => {
                 <input
                   type="text"
                   id="lastName"
-                  className="input"
+                  className="input w-full"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                 />
               </fieldset>
-
               <fieldset className="fieldset">
                 <label className="label" htmlFor="age">
                   Age
@@ -86,12 +89,11 @@ const EditProfile = () => {
                 <input
                   type="number"
                   id="age"
-                  className="input"
+                  className="input w-full"
                   value={age}
                   onChange={(e) => setAge(e.target.value)}
                 />
               </fieldset>
-
               <fieldset className="fieldset">
                 <label className="label" htmlFor="gender">
                   Gender
@@ -99,12 +101,11 @@ const EditProfile = () => {
 
                 <input
                   id="gender"
-                  className="input"
+                  className="input w-full"
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
                 />
               </fieldset>
-
               <fieldset className="fieldset">
                 <label className="label" htmlFor="about">
                   About
@@ -112,12 +113,11 @@ const EditProfile = () => {
 
                 <input
                   id="about"
-                  className="input"
+                  className="input w-full"
                   value={about}
                   onChange={(e) => setAbout(e.target.value)}
                 />
               </fieldset>
-
               <fieldset className="fieldset">
                 <label className="label" htmlFor="photo">
                   Photo
@@ -125,22 +125,23 @@ const EditProfile = () => {
 
                 <input
                   id="photo"
-                  className="input"
+                  className="input w-full"
                   value={photo}
                   onChange={(e) => setPhoto(e.target.value)}
                 />
               </fieldset>
-
-              <div className="card-actions justify-end my-5">
-                <button className="btn btn-primary" onClick={updateProfile}>
+              <div className="card-actions justify-center sm:justify-end my-4 sm:my-5">
+                <button
+                  className="btn btn-primary w-full sm:w-auto"
+                  onClick={updateProfile}
+                >
                   Save Changes
                 </button>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="my-28">
+        <div className="w-full flex justify-center lg:w-auto lg:my-28">
           <UserCard
             user={{
               firstName,
@@ -154,8 +155,8 @@ const EditProfile = () => {
         </div>
       </div>
       {toast && (
-        <div className="toast toast-top toast-center">
-          <div className="alert alert-success">
+        <div className="toast toast-top toast-center px-4 w-full">
+          <div className="alert alert-success w-full max-w-md">
             <span>Profile has been updated now!</span>
           </div>
         </div>

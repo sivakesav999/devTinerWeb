@@ -31,35 +31,40 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="navbar bg-base-200 shadow-sm">
-        <div className="flex-1">
-          <Link to="/feed" className="btn btn-ghost text-xl">
-            DevTinder
-          </Link>
+      {" "}
+      <div className="navbar bg-base-200 shadow-sm px-2 sm:px-4">
+        {" "}
+        <div className="flex-1 min-w-0">
+          {" "}
+          <Link
+            to="/feed"
+            className="btn btn-ghost text-lg sm:text-xl px-2 sm:px-4"
+          >
+            DevTinder{" "}
+          </Link>{" "}
         </div>
-
         {user && (
-          <div className="flex gap-2 items-center">
-            <p className="pt-2">
+          <div className="flex gap-1 sm:gap-2 items-center shrink-0">
+            <p className="hidden sm:block pt-2 max-w-40 md:max-w-none truncate">
               <b>Welcome, {user.firstName}</b>
             </p>
 
             {/* Dropdown */}
-            <div className="relative mx-3">
+            <div className="relative ml-1 sm:mx-3">
               {/* Avatar Button */}
               <button
                 type="button"
                 className="btn btn-ghost btn-circle avatar"
                 onClick={() => setIsOpen((prev) => !prev)}
               >
-                <div className="w-10 rounded-full">
+                <div className="w-9 sm:w-10 rounded-full">
                   <img alt="user photo" src={user.photo} />
                 </div>
               </button>
 
               {/* Dropdown Menu */}
               {isOpen && (
-                <ul className="menu menu-sm absolute right-0 top-14 z-50 w-52 rounded-box bg-base-100 p-2 shadow">
+                <ul className="menu menu-sm absolute right-0 top-14 z-50 w-52 max-w-[calc(100vw-1rem)] rounded-box bg-base-100 p-2 shadow">
                   <li>
                     <Link to="/profile" onClick={closeDropdown}>
                       Profile
