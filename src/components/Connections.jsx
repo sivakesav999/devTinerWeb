@@ -35,7 +35,7 @@ const Connections = () => {
     <div className="my-5">
       <h1 className="text-center font-bold text-2xl mb-5">Connections</h1>
 
-      <div className="flex flex-col flex-wrap justify-center gap-5 mx-5">
+      <div className="flex flex-col flex-wrap justify-center gap-5 mx-50">
         {myConnections.map((connection) => {
           const { firstName, lastName, photo, age, gender, about } = connection;
 

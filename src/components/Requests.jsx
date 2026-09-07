@@ -48,7 +48,7 @@ const Requests = () => {
         Connection Requests
       </h1>
 
-      <div className="flex flex-col flex-wrap justify-center gap-5 mx-5">
+      <div className="flex flex-col flex-wrap justify-center gap-5 mx-50">
         {myRequests.map((request) => {
           const { firstName, lastName, photo, age, gender, about } =
             request.fromUserId;
