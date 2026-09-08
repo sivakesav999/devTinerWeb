@@ -10,7 +10,7 @@ const UserCard = ({ user }) => {
   const handleFeed = async (status, _id) => {
     try {
       const feed = await axios.post(
-        baseUrl + "request/send/" + status + _id,
+        baseUrl + "request/send/" + status + "/" + _id,
         {},
         { withCredentials: true },
       );
