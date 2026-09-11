@@ -10,11 +10,12 @@ const Requests = () => {
 
   const reviewRequest = async (status, id) => {
     try {
-      const res = await axios.post(
+      await axios.post(
         baseUrl + "request/review/" + status + "/" + id,
         {},
         { withCredentials: true },
       );
+
       dispatch(removeRequest(id));
     } catch (err) {
       console.log(err);
@@ -26,6 +27,7 @@ const Requests = () => {
       const res = await axios.get(baseUrl + "requests/received", {
         withCredentials: true,
       });
+
       dispatch(addRequests(res.data.data));
     } catch (err) {
       console.log(err);
@@ -36,21 +38,19 @@ const Requests = () => {
     getRequests();
   }, []);
 
-  console.log(myRequests);
-
-  if (!myRequests) return;
+  if (!myRequests) return null;
 
   if (myRequests.length === 0) {
     return <h1 className="text-center my-10 px-4">No Requests found!</h1>;
   }
 
   return (
-    <div className="my-5 px-4 sm:px-6 lg:px-8">
-      {" "}
+    <div className="my-5 px-3 sm:px-6 lg:px-8 w-full overflow-x-hidden">
       <h1 className="text-center font-bold text-xl sm:text-2xl mb-5">
-        Connection Requests{" "}
+        Connection Requests
       </h1>
-      <div className="flex flex-col justify-center gap-4 sm:gap-5 w-full max-w-5xl mx-auto">
+
+      <div className="flex flex-col gap-4 sm:gap-5 w-full max-w-5xl mx-auto">
         {myRequests.map((request) => {
           const { firstName, lastName, photo, age, gender, about } =
             request.fromUserId;
@@ -58,9 +58,28 @@ const Requests = () => {
           return (
             <div
               key={request._id}
-              className="card card-side flex-col sm:flex-row bg-base-300 shadow-sm w-full min-h-0 sm:min-h-48 border overflow-hidden"
+              className="
+                card
+                card-side
+                flex-col
+                sm:flex-row
+                bg-base-300
+                shadow-sm
+                w-full
+                border
+                overflow-hidden
+              "
             >
-              <figure className="w-full h-64 sm:w-40 sm:h-48 shrink-0">
+              {/* Profile Image */}
+              <figure
+                className="
+                  w-full
+                  h-64
+                  sm:w-40
+                  sm:h-48
+                  shrink-0
+                "
+              >
                 <img
                   src={photo}
                   alt={firstName}
@@ -68,26 +87,86 @@ const Requests = () => {
                 />
               </figure>
 
-              <div className="card-body flex flex-col justify-center items-start w-full sm:flex-1 sm:w-auto p-4 sm:p-5 my-0 sm:my-9 text-left min-w-0">
+              {/* User Details */}
+              <div
+                className="
+                  card-body
+                  flex
+                  flex-col
+                  justify-center
+                  items-start
+                  w-full
+                  sm:flex-1
+                  sm:w-auto
+                  p-4
+                  sm:p-5
+                  text-left
+                  min-w-0
+                "
+              >
                 <h2 className="card-title text-lg sm:text-xl break-words">
                   {firstName} {lastName}
                 </h2>
 
                 <p className="break-words">{about}</p>
+
                 <p>{gender}</p>
                 <p>{age}</p>
               </div>
 
-              <div className="flex flex-row sm:flex-col lg:flex-row justify-center items-center gap-3 w-full sm:w-40 lg:w-56 px-4 pb-4 sm:pb-0">
+              {/* Action Buttons */}
+              <div
+                className="
+                  flex
+                  flex-row
+                  sm:flex-col
+                  lg:flex-row
+                  justify-center
+                  items-center
+                  gap-2
+                  sm:gap-3
+                  w-full
+                  sm:w-40
+                  lg:w-56
+                  px-3
+                  sm:px-4
+                  pb-3
+                  sm:pb-0
+                  shrink-0
+                "
+              >
                 <button
-                  className="btn btn-outline btn-secondary w-full sm:w-auto"
+                  className="
+                    btn
+                    btn-outline
+                    btn-secondary
+                    flex-1
+                    min-w-0
+                    sm:flex-none
+                    sm:w-full
+                    lg:w-auto
+                    lg:flex-1
+                    text-sm
+                    sm:text-base
+                  "
                   onClick={() => reviewRequest("rejected", request._id)}
                 >
                   Ignore
                 </button>
 
                 <button
-                  className="btn btn-primary w-full sm:w-auto"
+                  className="
+                    btn
+                    btn-primary
+                    flex-1
+                    min-w-0
+                    sm:flex-none
+                    sm:w-full
+                    lg:w-auto
+                    lg:flex-1
+                    text-sm
+                    sm:text-base
+                  "
                   onClick={() => reviewRequest("accepted", request._id)}
                 >
                   Accept
