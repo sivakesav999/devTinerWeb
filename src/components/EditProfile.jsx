@@ -16,6 +16,7 @@ const EditProfile = () => {
   const [gender, setGender] = useState(user.gender || "");
   const [photo, setPhoto] = useState(user.photo || "");
   const [toast, showToast] = useState(false);
+  const [error, setError] = useState("");
 
   const updateProfile = async () => {
     try {
@@ -24,7 +25,7 @@ const EditProfile = () => {
         {
           firstName,
           lastName,
-          age,
+          age: age === "" ? undefined : Number(age),
           about,
           gender,
           photo,
@@ -34,13 +35,14 @@ const EditProfile = () => {
         },
       );
 
-      dispatch(addUser(res.data));
+      dispatch(addUser(res.data.Data));
+      setError("");
       showToast(true);
       setTimeout(() => {
         showToast(false);
       }, 3000);
     } catch (err) {
-      console.log(err);
+      setError(err.response?.data || "Unable to update profile");
     }
   };
 
@@ -99,12 +101,19 @@ const EditProfile = () => {
                   Gender
                 </label>
 
-                <input
+                <select
                   id="gender"
-                  className="input w-full"
+                  className="select w-full"
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
-                />
+                >
+                  <option value="" disabled>
+                    Select gender
+                  </option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
               </fieldset>
               <fieldset className="fieldset">
                 <label className="label" htmlFor="about">
@@ -130,6 +139,7 @@ const EditProfile = () => {
                   onChange={(e) => setPhoto(e.target.value)}
                 />
               </fieldset>
+              {error && <p className="text-red-500 break-words">{error}</p>}
               <div className="card-actions justify-center sm:justify-end my-4 sm:my-5">
                 <button
                   className="btn btn-primary w-full sm:w-auto"
