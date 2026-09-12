@@ -95,7 +95,7 @@ const Chat = () => {
       </div>
 
       {/* Message Input - Always at Bottom */}
-      <div className="border-t p-3 sm:p-4 bg-base-100">
+      <div className="border-t p-3 sm:p-4 bg-transparent">
         <div className="flex items-center gap-2 w-full">
           <input
             value={newMessage}
@@ -107,7 +107,7 @@ const Chat = () => {
             }}
             type="text"
             placeholder="Type a message..."
-            className="input input-bordered flex-1 min-w-0 text-sm sm:text-base"
+            className="input input-bordered flex-1 min-w-0 text-sm sm:text-base bg-base-300"
           />
 
           <button

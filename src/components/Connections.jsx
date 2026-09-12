@@ -49,7 +49,7 @@ const Connections = () => {
           return (
             <div
               key={connection._id}
-              className="card card-side flex-col sm:flex-row bg-base-300 shadow-sm w-full min-h-0 sm:min-h-48 border overflow-hidden"
+              className="card card-side flex-col sm:flex-row bg-transparent shadow-sm w-full min-h-0 sm:min-h-48 border overflow-hidden"
             >
               <figure className="w-full h-64 sm:w-40 sm:h-48 shrink-0">
                 <img

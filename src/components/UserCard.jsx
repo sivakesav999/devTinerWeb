@@ -23,7 +23,7 @@ const UserCard = ({ user }) => {
   return (
     <>
       {" "}
-      <div className="card bg-base-300 w-full max-w-sm sm:max-w-md shadow-sm rounded-3xl overflow-hidden">
+      <div className="card bg-transparent w-full max-w-sm sm:max-w-md shadow-sm rounded-3xl overflow-hidden">
         {" "}
         <figure className="w-full h-72 sm:h-80 md:h-96">
           {" "}
