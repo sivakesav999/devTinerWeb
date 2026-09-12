@@ -4,11 +4,3 @@
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
 }
-
-body {
-  background-image: url("../public/backgroundImage.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-color: rgba(0, 0, 0, 0.65);
-}

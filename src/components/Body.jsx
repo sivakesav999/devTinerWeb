@@ -19,7 +19,7 @@ const Body = () => {
       });
       dispatch(addUser(res.data));
     } catch (err) {
-      if (err.status === 401) {
+      if(err.status === 401){
         return navigate("/login");
       }
       console.log(err);
@@ -33,13 +33,7 @@ const Body = () => {
   return (
     <>
       <NavBar />
-      <div className="min-h-screen bg-cover bg-center bg-fixed"
-        style={{
-          backgroundImage: "url('/devtinder-bg.png')",
-        }}
-      >
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer />
     </>
   );

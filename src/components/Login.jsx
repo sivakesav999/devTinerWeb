@@ -55,10 +55,13 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center px-4 py-8 sm:px-6">
-      <div className="card bg-transparent w-full max-w-md shadow-xl">
+      {" "}
+      <div className="card bg-base-300 w-full max-w-md shadow-sm">
+        {" "}
         <div className="card-body p-4 sm:p-6">
+          {" "}
           <h1 className="flex justify-center font-bold text-xl sm:text-2xl">
-            {isLoggedIn == true ? <>Login</> : <>Signup</>}
+            {isLoggedIn == true ? <>Login</> : <>Signup</>}{" "}
           </h1>
 
           {!isLoggedIn && (
@@ -131,21 +134,9 @@ const Login = () => {
             className="m-auto my-3 cursor-pointer text-center text-sm sm:text-base"
             onClick={() => setIsLoggedIn((value) => !value)}
           >
-            {isLoggedIn ? (
-  <>
-    New User?{" "}
-    <span className="underline text-cyan-300 font-semibold cursor-pointer hover:text-cyan-200">
-      Signup Here
-    </span>
-  </>
-) : (
-  <>
-    Existing User?{" "}
-    <span className="underline text-cyan-300 font-semibold cursor-pointer hover:text-cyan-200">
-      Login Here
-    </span>
-  </>
-)}
+            {isLoggedIn
+              ? "New User? Signup Here"
+              : "Existing User ? Login Here"}
           </p>
         </div>
       </div>

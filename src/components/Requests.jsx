@@ -63,7 +63,7 @@ const Requests = () => {
                 card-side
                 flex-col
                 sm:flex-row
-                bg-transparent
+                bg-base-300
                 shadow-sm
                 w-full
                 border
